@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Northwind.Core.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,14 @@ namespace Northwind.WPF
         public MainWindow()
         {
             InitializeComponent();
+
+            
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            HttpCustomersService http = new HttpCustomersService();
+            await http.GetAll();
         }
     }
 }
