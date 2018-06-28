@@ -13,8 +13,8 @@ namespace Northwind.Core.Http
     {
         public async Task<IEnumerable<Customer>> GetAll()
         {
-            string customers = await GetHttpResposeString("customers?format=json");
-            return JsonConvert.DeserializeObject<IEnumerable<Customer>>(customers);
+            var customers = await GetHttpTypedResponse<Customer>("Customers");
+            return customers;
         }
     }
 }
