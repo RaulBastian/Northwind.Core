@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Northwind.Core.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,24 @@ namespace Northwind.Universal
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private CustomersViewModel viewModel = null;
+
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            viewModel = new CustomersViewModel();
+
+            this.DataContext = viewModel;
+
+            this.Loaded += MainWindow_Loaded;
+
+        }
+
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            await viewModel.Refresh();
         }
     }
 }
