@@ -1,4 +1,5 @@
 ﻿using Northwind.Core.Http;
+using Northwind.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Northwind.WPF
 {
@@ -21,17 +23,22 @@ namespace Northwind.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CustomersViewModel viewModel = null;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            
+            viewModel = new CustomersViewModel();
+
+            this.DataContext = viewModel;
+
+            this.Loaded += MainWindow_Loaded;
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            HttpCustomersService http = new HttpCustomersService();
-            await http.GetAll();
+            await viewModel.Refresh();
         }
     }
 }

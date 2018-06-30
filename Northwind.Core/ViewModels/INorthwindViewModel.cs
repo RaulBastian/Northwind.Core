@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Northwind.Core.Abstractions
+namespace Northwind.Core.ViewModels
 {
-
     /// <summary>
-    /// Northwind service base interface
+    /// View models base class interface
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface INorthwindServiceBase<T> where T : class
+    public interface INorthwindViewModel<T> where T:class
     {
-        Task<IEnumerable<T>> GetAll();
+         Task<IEnumerable<T>> Refresh();
     }
 }

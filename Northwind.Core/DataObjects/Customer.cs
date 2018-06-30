@@ -6,7 +6,7 @@ namespace Northwind.Core.DataObjects
 {
     public class Customer
     {
-        public string Id { get; set; }
+        public string CustomerID { get; set; }
 
         public string CompanyName { get; set; }
 
@@ -25,5 +25,7 @@ namespace Northwind.Core.DataObjects
         public string Phone { get; set; }
 
         public string Fax { get; set; }
+
+        public string Region { get; set; }
     }
 }

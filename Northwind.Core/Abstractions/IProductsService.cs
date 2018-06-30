@@ -2,17 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Northwind.Core.Abstractions
 {
     /// <summary>
-    /// Customers service interface
+    /// Products service interface
     /// </summary>
-    public interface ICustomersService: INorthwindServiceBase<Customer>
+    public interface IProductsService: INorthwindServiceBase<Product>
     {
-        
-
 
     }
 }
