@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Commands;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,8 @@ namespace Northwind.Core.ViewModels
     /// View models base class interface
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface INorthwindViewModel<T> where T:class
+    public interface INorthwindCollectionViewModel<T> where T : class
     {
-         Task<IEnumerable<T>> Refresh();
+        DelegateCommand RefreshCommand { get; }
     }
 }

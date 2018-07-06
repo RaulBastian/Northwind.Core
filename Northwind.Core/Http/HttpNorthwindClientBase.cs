@@ -1,10 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Northwind.Core.DataObjects;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Northwind.Core.Http
 {
@@ -22,11 +21,18 @@ namespace Northwind.Core.Http
         }
 
 
-        protected async Task<IEnumerable<T>> GetHttpTypedResponse<T>(string relativePath) where T:class
+        protected async Task<IEnumerable<T>> GetHttpCollectionResponse<T>(string relativePath) where T:class
         {
             var response = await GetHttpResposeString(relativePath);
             var odata =  JsonConvert.DeserializeObject<ODataResponse<T>>(response);
             return odata.Items;
+        }
+
+        protected async Task<T> GetHttpItemResponse<T>(string relativePath) where T : class
+        {
+            var response = await GetHttpResposeString(relativePath);
+            var odata = JsonConvert.DeserializeObject<ODataResponse<T>>(response);
+            return odata.Items.FirstOrDefault();
         }
     }
 }

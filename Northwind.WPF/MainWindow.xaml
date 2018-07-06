@@ -7,12 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ItemsControl ItemsSource="{Binding Items}">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <ListView Grid.Row="0" Name="Customers" ItemsSource="{Binding Items}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding CompanyName}"></Label>
+                    <Label Content="{Binding Item.CompanyName}"></Label>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        </ListView>
+
+        <Border Grid.Row="1" Height="5" Background="Green"></Border>
+
+        <StackPanel Grid.Row="2" DataContext="{Binding SelectedItem.Item, ElementName=Customers}">
+            <TextBox Text="{Binding CompanyName }"></TextBox>
+            <TextBox Text="{Binding ContactName  }"></TextBox>
+            <TextBox Text="{Binding ContactTitle }"></TextBox>
+        </StackPanel>
+        
     </Grid>
 </Window>

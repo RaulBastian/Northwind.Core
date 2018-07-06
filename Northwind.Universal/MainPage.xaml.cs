@@ -23,14 +23,14 @@ namespace Northwind.Universal
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private CustomersViewModel viewModel = null;
+        private CustomersCollectionViewModel viewModel = null;
 
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            viewModel = new CustomersViewModel();
+            viewModel = new CustomersCollectionViewModel();
 
             this.DataContext = viewModel;
 

@@ -11,16 +11,16 @@ namespace Northwind.Core.ViewModels
     /// <summary>
     /// Represents the customers view model
     /// </summary>
-    public class CustomersViewModel: NorthwindViewModelBase<Customer>
+    public class CustomersCollectionViewModel: NorthwindCollectionViewModelBase<Customer>
     {
         private ICustomersService service;
 
-        public CustomersViewModel(): this(new HttpCustomersService())
+        public CustomersCollectionViewModel(): this(new HttpCustomersService())
         {
 
         }
 
-        public CustomersViewModel(ICustomersService service):base(service)
+        public CustomersCollectionViewModel(ICustomersService service):base(service)
         {
             this.service = service;
         }

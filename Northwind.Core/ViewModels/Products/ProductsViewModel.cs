@@ -10,7 +10,7 @@ namespace Northwind.Core.ViewModels
     /// <summary>
     /// Represents the products view model
     /// </summary>
-    public class ProductsViewModel : NorthwindViewModelBase<Product>
+    public class ProductsViewModel : NorthwindCollectionViewModelBase<Product>
     {
         private IProductsService service;
 

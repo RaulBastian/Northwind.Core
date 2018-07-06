@@ -8,13 +8,13 @@ namespace Northwind.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private CustomersViewModel viewModel = null;
+        private CustomersCollectionViewModel viewModel = null;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            viewModel = new CustomersViewModel();
+            viewModel = new CustomersCollectionViewModel();
 
             this.DataContext = viewModel;
 

@@ -9,10 +9,18 @@ namespace Northwind.Core.Http
 {
     public class HttpProductsService : HttpNorthwindClientBase, IProductsService
     {
+        private const string root = "Products";
+
         public async Task<IEnumerable<Product>> GetAll()
         {
-            var products = await GetHttpTypedResponse<Product>("Products");
+            var products = await GetHttpCollectionResponse<Product>("Products");
             return products;
+        }
+
+        public async Task<Product> GetById(string id)
+        {
+            var product = await GetHttpItemResponse<Product>($"{root}('{id}'");
+            return product;
         }
     }
 }
