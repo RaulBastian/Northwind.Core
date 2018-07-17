@@ -7,13 +7,11 @@ Collection view models have two properties:
 - RefreshCommand (Refreshes the collection)
 - Items (Elements of the collection)
 
-Items are also view models which expose the following properties:
+Items are view models which expose the following properties:
 - DataObject (Represents the entity: Customer, Product, Order)
 - DeleteCommand
 - RefreshCommand
 - SaveCommand
-
-To use we set a view model collection as the data context.
 
 e.g:
 this.DataContext = new CustomersCollectionViewModel();
