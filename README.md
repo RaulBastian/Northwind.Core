@@ -13,10 +13,10 @@ Items are view models which expose the following properties:
 - RefreshCommand
 - SaveCommand
 
-e.g:
+e.g: (Customers and its Orders)
+
 this.DataContext = new CustomersCollectionViewModel();
 
-For a DataGrid: (Customers and its Orders)
 <DataGrid Grid.Row="0" Name="Customers" ItemsSource="{Binding Items, Mode=OneWay}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding DataObject.CustomerID}"></DataGridTextColumn>
