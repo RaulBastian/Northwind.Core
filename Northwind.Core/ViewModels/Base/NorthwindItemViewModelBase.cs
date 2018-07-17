@@ -21,7 +21,7 @@ namespace Northwind.Core.ViewModels {
             this.item = item;
         }
 
-        public T Item {
+        public T DataObject {
             get {
                 return item;
             }

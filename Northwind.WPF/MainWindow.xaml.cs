@@ -17,13 +17,7 @@ namespace Northwind.WPF
             viewModel = new CustomersCollectionViewModel();
 
             this.DataContext = viewModel;
-
-            this.Loaded += MainWindow_Loaded;
         }
 
-        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            await viewModel.Refresh();
-        }
     }
 }

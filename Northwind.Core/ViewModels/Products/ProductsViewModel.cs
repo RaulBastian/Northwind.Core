@@ -1,6 +1,7 @@
 ﻿using Northwind.Core.Abstractions;
 using Northwind.Core.DataObjects;
 using Northwind.Core.Http;
+using Northwind.Core.ViewModels.Products;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,10 @@ namespace Northwind.Core.ViewModels
         public ProductsViewModel(IProductsService service) : base(service)
         {
             this.service = service;
+        }
+
+        protected override NorthwindItemViewModelBase<Product> GetNorthwindItemViewModel(Product item, INorthwindServiceBase<Product> service) {
+            return new ProductItemViewModel(item);
         }
     }
 }

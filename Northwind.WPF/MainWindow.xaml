@@ -12,22 +12,32 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <ListView Grid.Row="0" Name="Customers" ItemsSource="{Binding Items}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding Item.CompanyName}"></Label>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ListView>
+
+        <DataGrid Grid.Row="0" Name="Customers" ItemsSource="{Binding Items, Mode=OneWay}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding DataObject.CustomerID}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.CompanyName}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.ContactName}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.ContactTitle}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.Address}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.City}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.Country}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Border Grid.Row="1" Height="5" Background="Green"></Border>
 
-        <StackPanel Grid.Row="2" DataContext="{Binding SelectedItem.Item, ElementName=Customers}">
-            <TextBox Text="{Binding CompanyName }"></TextBox>
-            <TextBox Text="{Binding ContactName  }"></TextBox>
-            <TextBox Text="{Binding ContactTitle }"></TextBox>
-        </StackPanel>
+        <DataGrid Grid.Row="2" Name="Orders" ItemsSource="{Binding SelectedItem.Orders.Items, ElementName=Customers, Mode=OneWay}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding DataObject.OrderID}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.CustomerID}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.OrderDate}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.ShippedDate}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.ShipAddress}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.ShipCity}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataObject.ShipRegion}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         
     </Grid>
 </Window>

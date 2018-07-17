@@ -1,6 +1,7 @@
 ﻿using Northwind.Core.Abstractions;
 using Northwind.Core.DataObjects;
 using Northwind.Core.Http;
+using Northwind.Core.ViewModels.Customers;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,10 @@ namespace Northwind.Core.ViewModels
         public CustomersCollectionViewModel(ICustomersService service):base(service)
         {
             this.service = service;
+        }
+
+        protected override NorthwindItemViewModelBase<Customer> GetNorthwindItemViewModel(Customer item, INorthwindServiceBase<Customer> service) {
+            return new CustomerItemViewModel(item);
         }
     }
 }

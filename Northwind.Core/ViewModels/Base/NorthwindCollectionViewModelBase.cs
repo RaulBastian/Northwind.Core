@@ -15,20 +15,13 @@ namespace Northwind.Core.ViewModels {
     /// <typeparam name="T"></typeparam>
     public class NorthwindCollectionViewModelBase<T> : BindableBase, INorthwindCollectionViewModel<T> where T : class {
         private INorthwindServiceBase<T> service;
-        private ObservableCollection<INorthwindItemViewModel<T>> items = new ObservableCollection<INorthwindItemViewModel<T>>();
+        private ObservableCollection<INorthwindItemViewModel<T>> items = null;
         private T item = null;
 
         private DelegateCommand refreshCommand = null;
 
         public NorthwindCollectionViewModelBase(INorthwindServiceBase<T> service) {
             this.service = service;
-        }
-
-        public ObservableCollection<INorthwindItemViewModel<T>> Items {
-            get {
-                return items;
-            }
-            set { }
         }
 
 
@@ -46,18 +39,34 @@ namespace Northwind.Core.ViewModels {
             }
         }
 
+        public ObservableCollection<INorthwindItemViewModel<T>> Items {
+            get {
+                if(items ==  null) {
+                    items = new ObservableCollection<INorthwindItemViewModel<T>>();
+                    RefreshCommand.Execute();
+                }
 
-        public async Task<IEnumerable<T>> Refresh() {
-            var responseItems = await service.GetAll();
+                return items;
+            }
+        }
+
+        private async Task Refresh() {
+            var responseItems = await GetCollection();
 
             items.Clear();
 
             foreach (var item in responseItems) {
-                INorthwindItemViewModel<T> vm = new NorthwindItemViewModelBase<T>(item, this.service);
+                INorthwindItemViewModel<T> vm = GetNorthwindItemViewModel(item, this.service);
                 items.Add(vm);
             }
+        }
 
-            return responseItems;
+        protected virtual async Task<IEnumerable<T>> GetCollection() {
+            return await service.GetAll();
+        }
+
+        protected virtual NorthwindItemViewModelBase<T> GetNorthwindItemViewModel(T item, INorthwindServiceBase<T> service) {
+            return new NorthwindItemViewModelBase<T>(item, this.service);
         }
     }
 }
