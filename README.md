@@ -13,6 +13,7 @@ Items are view models which expose the following properties:
 - RefreshCommand
 - SaveCommand
 
+```
 e.g: (Customers and its Orders)
 
 this.DataContext = new CustomersCollectionViewModel();
@@ -42,4 +43,4 @@ this.DataContext = new CustomersCollectionViewModel();
                 <DataGridTextColumn Binding="{Binding DataObject.ShipRegion}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
- 
+ ```
