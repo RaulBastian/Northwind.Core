@@ -14,7 +14,7 @@ Items are view models which expose the following properties:
 - SaveCommand
 
 ```
-e.g: (Customers and its Orders)
+e.g: (Customers and their Orders)
 
 this.DataContext = new CustomersCollectionViewModel();
 
