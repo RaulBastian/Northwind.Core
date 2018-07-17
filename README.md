@@ -1,8 +1,7 @@
 # Northwind.Core
-Northwind client API and ViewModels to quickly setup sample and prototype applications. With 1 to Many relations, 1 to Many to Many relations etc.
 
-There is a collection view model for each northwind entity. 
- *At the moment CustomersViewModel, OrdersViewModel , ProductsViewModel
+Each northwind entity has a collection view model.
+ *So far: CustomersViewModel, OrdersViewModel , ProductsViewModel
 
 Collection view models have two properties:
 - RefreshCommand (Refreshes the collection)
