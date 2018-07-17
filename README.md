@@ -8,7 +8,7 @@ Collection view models have two properties:
 - Items (Elements of the collection)
 
 Items are view models which expose the following properties:
-- DataObject (Represents the entity: Customer, Product, Order)
+- DataObject (The northwind entity: Customer, Product, Order)
 - DeleteCommand
 - RefreshCommand
 - SaveCommand
