@@ -1,6 +1,6 @@
-# Northwind.Core
+ Northwind.Core
 
-Each northwind entity has a collection view model.
+Each Northwind entity has a collection view model.
  *So far: CustomersViewModel, OrdersViewModel , ProductsViewModel
 
 Collection view models have two properties:
@@ -8,7 +8,7 @@ Collection view models have two properties:
 - Items (Elements of the collection)
 
 Items are view models which expose the following properties:
-- DataObject (The northwind entity: Customer, Product, Order)
+- DataObject (The Northwind entity: Customer, Product, Order)
 - DeleteCommand
 - RefreshCommand
 - SaveCommand
@@ -16,7 +16,7 @@ Items are view models which expose the following properties:
 ```
 e.g: (Customers and their Orders)
 
-this.DataContext = new CustomersCollectionViewModel();
+this.DataContext = new CustomersViewModel();
 
 <DataGrid Grid.Row="0" Name="Customers" ItemsSource="{Binding Items, Mode=OneWay}" AutoGenerateColumns="False">
             <DataGrid.Columns>
