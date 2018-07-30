@@ -1,14 +1,14 @@
-# Northwind.Core
+ Northwind.Core
 
-Each northwind entity has a collection view model.
- *So far: CustomersViewModel, OrdersViewModel , ProductsViewModel
+Each Northwind entity has a collection view model.
+ *So far: CustomersCollectionViewModel, OrdersViewModel , ProductsViewModel
 
 Collection view models have two properties:
 - RefreshCommand (Refreshes the collection)
 - Items (Elements of the collection)
 
 Items are view models which expose the following properties:
-- DataObject (The northwind entity: Customer, Product, Order)
+- DataObject (The Northwind entity: Customer, Product, Order)
 - DeleteCommand
 - RefreshCommand
 - SaveCommand
