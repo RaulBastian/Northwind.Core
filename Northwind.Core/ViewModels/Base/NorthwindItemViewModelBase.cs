@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.Core.ViewModels {
     public class NorthwindItemViewModelBase<T> : BindableBase, INorthwindItemViewModel<T> where T : class {
+        private bool isNew = false;
         private T item = null;
         private INorthwindServiceBase<T> service;
 
@@ -16,9 +17,10 @@ namespace Northwind.Core.ViewModels {
         private DelegateCommand saveCommand;
         private DelegateCommand refreshCommand;
 
-        public NorthwindItemViewModelBase(T item, INorthwindServiceBase<T> service) {
+        public NorthwindItemViewModelBase(T item, INorthwindServiceBase<T> service, bool isNew = false) {
             this.service = service;
             this.item = item;
+            this.isNew = isNew;
         }
 
         public T DataObject {
@@ -69,6 +71,11 @@ namespace Northwind.Core.ViewModels {
             }
         }
 
+        public bool IsNew {
+            get {
+                return isNew;
+            }
+        }
 
         public Task<T> GetById(string id) {
             throw new NotImplementedException();

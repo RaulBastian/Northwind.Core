@@ -8,6 +8,8 @@ namespace Northwind.Core.ViewModels.Base
 {
     public interface INorthwindItemViewModel<T> where T : class
     {
+        bool IsNew { get; }
+
          T DataObject { get; }
 
         DelegateCommand DeleteCommand { get; }

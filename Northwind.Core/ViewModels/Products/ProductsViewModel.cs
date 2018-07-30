@@ -25,7 +25,7 @@ namespace Northwind.Core.ViewModels
             this.service = service;
         }
 
-        protected override NorthwindItemViewModelBase<Product> GetNorthwindItemViewModel(Product item, INorthwindServiceBase<Product> service) {
+        protected override NorthwindItemViewModelBase<Product> GetNorthwindItemViewModel(Product item, INorthwindServiceBase<Product> service,bool isNew = false) {
             return new ProductItemViewModel(item);
         }
     }

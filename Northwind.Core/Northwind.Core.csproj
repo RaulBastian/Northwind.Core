@@ -8,7 +8,11 @@
     <RepositoryUrl>https://github.com/Raulland/Northwind.Core</RepositoryUrl>
     <Authors>Raul Bastian</Authors>
     <Company>Raul Bastian</Company>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageReleaseNotes>Includes:
+CustomersViewModel, OrdersViewModel , ProductsViewModel</PackageReleaseNotes>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.1.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

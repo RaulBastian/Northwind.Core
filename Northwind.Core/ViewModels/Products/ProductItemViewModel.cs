@@ -11,12 +11,12 @@ namespace Northwind.Core.ViewModels.Products
     {
         private IProductsService service;
 
-        public ProductItemViewModel(Product product) : this(product, new HttpProductsService())
+        public ProductItemViewModel(Product product,bool isNew = false) : this(product, new HttpProductsService(), isNew)
         {
 
         }
 
-        public ProductItemViewModel(Product product, IProductsService service) : base(product, service)
+        public ProductItemViewModel(Product product, IProductsService service, bool isNew = false) : base(product, service, isNew)
         {
             this.service = service;
         }

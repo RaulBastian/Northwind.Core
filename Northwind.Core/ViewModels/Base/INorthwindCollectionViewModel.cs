@@ -17,5 +17,7 @@ namespace Northwind.Core.ViewModels
         ObservableCollection<INorthwindItemViewModel<T>> Items { get; }
 
         DelegateCommand RefreshCommand { get; }
+
+        DelegateCommand NewCommand { get; }
     }
 }

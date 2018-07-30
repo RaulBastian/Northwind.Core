@@ -35,7 +35,7 @@ namespace Northwind.Core.ViewModels.Orders
             }
         }
 
-        protected override NorthwindItemViewModelBase<Order> GetNorthwindItemViewModel(Order item, INorthwindServiceBase<Order> service) {
+        protected override NorthwindItemViewModelBase<Order> GetNorthwindItemViewModel(Order item, INorthwindServiceBase<Order> service, bool isNew = false) {
             return new OrderItemViewModel(item, this.ordersService);
         }
     }

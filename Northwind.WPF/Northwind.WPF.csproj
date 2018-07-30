@@ -102,7 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Northwind.Core\Northwind.Core.csproj">
-      <Project>{34dc072c-d5c1-41f0-ae0b-a0074c7c0ce7}</Project>
+      <Project>{34DC072C-D5C1-41F0-AE0B-A0074C7C0CE7}</Project>
       <Name>Northwind.Core</Name>
     </ProjectReference>
   </ItemGroup>
