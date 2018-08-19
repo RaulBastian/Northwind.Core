@@ -4,6 +4,10 @@ using Northwind.Forms.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
+using Northwind.Core.ViewModels;
+using Northwind.Core.Abstractions;
+using Northwind.Core.Http;
+using Northwind.Forms.ViewModels;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Northwind.Forms {
@@ -18,17 +22,28 @@ namespace Northwind.Forms {
 
         public App(IPlatformInitializer initializer) : base(initializer) { }
 
+
+        protected override void OnStart() {
+            base.OnStart();
+        }
+
         protected override async void OnInitialized()
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("Index/Navigation/Customers");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<NorthwindMasterDetail, NorthwindMasterDetailViewModel>("Index");
+            containerRegistry.RegisterForNavigation<NavigationPage>("Navigation");
+
+            containerRegistry.RegisterInstance<ICustomersService>(new HttpCustomersService());
+            containerRegistry.RegisterInstance<IProductsService>(new HttpProductsService());
+
+            containerRegistry.RegisterForNavigation<Customers, CustomersViewModel>("Customers");
+            containerRegistry.RegisterForNavigation<Products,ProductsViewModel>("Products");
         }
     }
 }

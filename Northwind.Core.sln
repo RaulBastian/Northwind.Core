@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{D220
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WPF", "Northwind.WPF\Northwind.WPF.csproj", "{461C5176-2A17-451B-9A35-6C0007065E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Forms", "Northwind.Forms\Northwind.Forms\Northwind.Forms.csproj", "{B95A1C9E-82D8-423A-8EA8-6E8ACF861F22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Forms", "Northwind.Forms\Northwind.Forms\Northwind.Forms.csproj", "{B95A1C9E-82D8-423A-8EA8-6E8ACF861F22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Forms.Android", "Northwind.Forms\Northwind.Forms.Android\Northwind.Forms.Android.csproj", "{3A74DFA1-9B4E-4829-9972-FC93192DC954}"
 EndProject

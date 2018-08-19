@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Northwind client API and ViewModels to quickly setup sample and prototype applications. With 1 to Many relations, 1 to Many to Many relations etc.</Description>
-    <PackageProjectUrl>https://github.com/Raulland/Northwind.Core</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Raulland/Northwind.Core</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/RaulBastian/Northwind.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RaulBastian/Northwind.Core</RepositoryUrl>
     <Authors>Raul Bastian</Authors>
     <Company>Raul Bastian</Company>
     <PackageReleaseNotes>Includes:
