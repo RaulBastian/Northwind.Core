@@ -1,4 +1,5 @@
 ﻿using Northwind.Core.ViewModels;
+using Northwind.Core.ViewModels.Customers;
 using System.Windows;
 
 namespace Northwind.WPF

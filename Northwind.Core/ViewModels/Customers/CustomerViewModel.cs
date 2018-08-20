@@ -9,18 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Northwind.Core.ViewModels.Customers {
-    public class CustomerItemViewModel : NorthwindItemViewModelBase<Customer> {
+    public class CustomerViewModel : NorthwindItemViewModelBase<Customer> {
 
         private OrdersViewModel orders = null;
 
         private ICustomersService customerService;
         private IOrdersService ordersService;
 
-        public CustomerItemViewModel(Customer customer) : this(customer, new HttpOrdersService(), new HttpCustomersService()) {
+        public CustomerViewModel(Customer customer) : this(customer, new HttpOrdersService(), new HttpCustomersService()) {
 
         }
 
-        public CustomerItemViewModel(Customer customer, IOrdersService ordersService, ICustomersService service) : base(customer, service) {
+        public CustomerViewModel(Customer customer, IOrdersService ordersService, ICustomersService service) : base(customer, service) {
             this.ordersService = ordersService;
             this.customerService = service;
         }

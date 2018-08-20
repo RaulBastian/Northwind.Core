@@ -8,6 +8,8 @@ using Northwind.Core.ViewModels;
 using Northwind.Core.Abstractions;
 using Northwind.Core.Http;
 using Northwind.Forms.ViewModels;
+using Northwind.Core.ViewModels.Customers;
+using Northwind.Core.ViewModels.Products;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Northwind.Forms {

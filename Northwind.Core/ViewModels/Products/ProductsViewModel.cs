@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Northwind.Core.ViewModels
+namespace Northwind.Core.ViewModels.Products
 {
     /// <summary>
     /// Represents the products view model
@@ -26,7 +26,7 @@ namespace Northwind.Core.ViewModels
         }
 
         protected override NorthwindItemViewModelBase<Product> GetNorthwindItemViewModel(Product item, INorthwindServiceBase<Product> service,bool isNew = false) {
-            return new ProductItemViewModel(item);
+            return new ProductViewModel(item);
         }
     }
 }
