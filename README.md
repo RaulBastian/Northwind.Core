@@ -1,5 +1,4 @@
- Northwind.Core
-
+ 
 Each Northwind entity has a collection view model.
  *So far: CustomersCollectionViewModel, OrdersViewModel , ProductsViewModel
 
@@ -44,3 +43,63 @@ this.DataContext = new CustomersCollectionViewModel();
             </DataGrid.Columns>
         </DataGrid>
  ```
+ 
+ For Xamarin.Forms with PRISM
+ 
+ - We need to specify view models for each view, we can't use the default as they belong to a different assembly in this case Northwind.Core.
+ - Collection view models have a dependency on service abstractions, e.g: HttpCustomersService, HttpProductsService, these will be responsible for invoking ODATA northwind services and mapping to a northwind data object.
+ 
+ ```
+   protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<NorthwindMasterDetail, NorthwindMasterDetailViewModel>("Index");
+            containerRegistry.RegisterForNavigation<NavigationPage>("Navigation");
+
+            containerRegistry.RegisterInstance<ICustomersService>(new HttpCustomersService());
+            containerRegistry.RegisterInstance<IProductsService>(new HttpProductsService());
+
+            containerRegistry.RegisterForNavigation<Customers, CustomersViewModel>("Customers");
+            containerRegistry.RegisterForNavigation<Products,ProductsViewModel>("Products");
+        }
+```
+
+An example using a MasterDetail page using PRISM's navigation service
+
+```
+ protected override async void OnInitialized()
+        {
+            InitializeComponent();
+
+            await NavigationService.NavigateAsync("Index/Navigation/Customers");
+        }
+```
+
+View sample, Customers.xaml
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Northwind.Forms.Views.Customers">
+    <ListView ItemsSource="{Binding Items, Mode=OneWay}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Text="{Binding DataObject.CustomerID}"></Label>
+                        <Label Grid.Row="1" Text="{Binding DataObject.Country}"></Label>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
+```
+
