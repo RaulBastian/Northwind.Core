@@ -10,6 +10,9 @@ using Northwind.Core.Http;
 using Northwind.Forms.ViewModels;
 using Northwind.Core.ViewModels.Customers;
 using Northwind.Core.ViewModels.Products;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Northwind.Forms {
@@ -20,10 +23,18 @@ namespace Northwind.Forms {
          * This imposes a limitation in which the App class must have a default constructor. 
          * App(IPlatformInitializer initializer = null) cannot be handled by the Activator.
          */
-        public App() : this(null) { }
+        public App() : this(null) { Configure(); }
 
-        public App(IPlatformInitializer initializer) : base(initializer) { }
+        public App(IPlatformInitializer initializer) : base(initializer) { Configure(); }
 
+
+        private void Configure() {
+            // Initialize Live Reload.
+#if DEBUG
+            LiveReload.Init();
+#endif
+
+        }
 
         protected override void OnStart() {
             base.OnStart();

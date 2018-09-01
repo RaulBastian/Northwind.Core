@@ -9,7 +9,5 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Raul Raul"></TextBlock>
-    </Grid>
+    
 </forms:WindowsPage>

@@ -30,6 +30,13 @@ namespace Northwind.Forms.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.UnhandledException += App_UnhandledException;
+        }
+
+        private void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e) {
+#if DEBUG
+            e.Handled = true;
+#endif
         }
 
         /// <summary>
@@ -97,5 +104,6 @@ namespace Northwind.Forms.UWP
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
     }
 }

@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="df62b336-78ed-48c4-9b27-445b8b1badf5"
+    Name="54c55af2-2fba-484b-9216-ef4eee0d35cd"
     Publisher="CN=Raul"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="df62b336-78ed-48c4-9b27-445b8b1badf5" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="54c55af2-2fba-484b-9216-ef4eee0d35cd" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Northwind.Universal</DisplayName>
+    <DisplayName>Northwind.Windows.UWP</DisplayName>
     <PublisherDisplayName>Raul</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="Northwind.Universal.App">
+      EntryPoint="Northwind.Windows.UWP.App">
       <uap:VisualElements
-        DisplayName="Northwind.Universal"
+        DisplayName="Northwind.Windows.UWP"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Northwind.Universal"
+        Description="Northwind.Windows.UWP"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

@@ -1,5 +1,4 @@
-﻿using Northwind.Core.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,31 +15,16 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace Northwind.Universal
+namespace Northwind.Windows.UWP
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private CustomersCollectionViewModel viewModel = null;
-
-
         public MainPage()
         {
             this.InitializeComponent();
-
-            viewModel = new CustomersCollectionViewModel();
-
-            this.DataContext = viewModel;
-
-            this.Loaded += MainWindow_Loaded;
-
-        }
-
-        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            await viewModel.Refresh();
         }
     }
 }
