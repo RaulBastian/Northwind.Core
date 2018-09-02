@@ -13,6 +13,7 @@ CustomersViewModel, OrdersViewModel , ProductsViewModel</PackageReleaseNotes>
     <Version>1.0.2-beta</Version>
     <AssemblyVersion>1.0.0.2</AssemblyVersion>
     <FileVersion>1.0.1.2</FileVersion>
+    <Configurations>Debug;Release;UWP-Deb</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

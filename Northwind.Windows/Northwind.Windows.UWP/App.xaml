@@ -1,7 +1,8 @@
-﻿<Application
+﻿<prismUnity:PrismUnityApplication
     x:Class="Northwind.Windows.UWP.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prismUnity="using:Prism.Unity.Windows"
     xmlns:local="using:Northwind.Windows.UWP">
 
-</Application>
+</prismUnity:PrismUnityApplication>
