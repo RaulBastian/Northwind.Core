@@ -1,5 +1,4 @@
- 
-Each Northwind entity has a collection view model.
+ Each Northwind entity has a collection view model.
  *So far: CustomersCollectionViewModel, OrdersViewModel , ProductsViewModel
 
 Collection view models have two properties:
@@ -12,6 +11,9 @@ Items are view models which expose the following properties:
 - RefreshCommand
 - SaveCommand
 
+## For WPF
+
+#### DataGrid
 ```
 e.g: (Customers and their Orders)
 
@@ -21,7 +23,7 @@ this.DataContext = new CustomersCollectionViewModel();
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding DataObject.CustomerID}"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding DataObject.CompanyName}"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding DataObject.ContactName}"></DataGridTextColumn>
+                 <DataGridTextColumn Binding="{Binding DataObject.ContactName}"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding DataObject.ContactTitle}"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding DataObject.Address}"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding DataObject.City}"></DataGridTextColumn>
@@ -44,7 +46,27 @@ this.DataContext = new CustomersCollectionViewModel();
         </DataGrid>
  ```
  
- For Xamarin.Forms with PRISM
+ #### Or in a ListView:
+ 
+ ```
+ <ListView ItemsSource="{Binding Items, Mode=OneWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Content="{Binding DataObject.CustomerID}"></Label>
+                        <Label Grid.Row="1" Content="{Binding DataObject.Country}"></Label>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+ ```
+ 
+ ## For Xamarin.Forms with PRISM
  
  - We need to specify view models for each view, we can't use the default as they belong to a different assembly in this case Northwind.Core.
  - Collection view models have a dependency on service abstractions, e.g: HttpCustomersService, HttpProductsService, these will be responsible for invoking ODATA northwind services and mapping to a northwind data object.
