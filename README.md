@@ -125,7 +125,7 @@ View sample, Customers.xaml
 </ContentPage>
 ```
 
-##Extending a view model
+## Extending a view model
 
 ```
 public class MyCustomersCollectionViewModel : CustomersCollectionViewModel
