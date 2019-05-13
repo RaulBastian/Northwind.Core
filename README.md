@@ -125,3 +125,37 @@ View sample, Customers.xaml
 </ContentPage>
 ```
 
+##Extending a view model
+
+```
+public class MyCustomersCollectionViewModel : CustomersCollectionViewModel
+    {
+        protected override NorthwindItemViewModelBase<Customer> GetNorthwindItemViewModel(Customer item, INorthwindServiceBase<Customer> service)
+        {
+            return new MyCustomerViewModel(item);
+        }
+    }
+    
+   public class MyCustomerViewModel : Northwind.Core.ViewModels.Customers.CustomerItemViewModel
+    {
+        public MyCustomerViewModel(Customer customer) : base(customer)
+        {
+            this.Property1 = "Name";
+        }
+
+        public MyCustomerViewModel(Customer customer, IOrdersService ordersService, ICustomersService service) : base(customer, ordersService, service)
+        {
+            this.Property2 = "Surname";
+        }
+
+        public string Property1 { get; set; }
+
+        public string Property2 { get; set; }
+    }
+```
+
+We then set the data context:
+
+```
+this.DataContext = new MyCustomersCollectionViewModel();
+```
