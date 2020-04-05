@@ -13,13 +13,13 @@ e.g:
  - Trying out a custom ItemTemplateSelector
  - Need to test hierarchical tempaltes in a tree 
  
- In all these cases you can add the referenc and copy and past from here etc
+ In all these cases you can add the reference and copy and past from here etc
  
  ## Description
  
  Each Northwind entity has a collection view model.  
  
- *So far: CustomersCollectionViewModel, OrdersCollectionViewModel , ProductsCollectionViewModel, EmployeesCollectionViewModel
+ *So far: CustomersCollectionViewModel, OrdersCollectionViewModel , ProductsCollectionViewModel, EmployeesCollectionViewModel*
 
 Collection view models have two properties:
 - RefreshCommand (Refreshes the collection)
