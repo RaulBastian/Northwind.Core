@@ -90,7 +90,7 @@ this.DataContext = new CustomersCollectionViewModel();
   #### Or in a TreeView: (With EmployeesCollectionViewModel)
  
  ```
-<TreeView Grid.Row="1" ItemsSource="{Binding Items, Mode=OneWay}">
+<TreeView ItemsSource="{Binding Items, Mode=OneWay}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                     <Grid>
