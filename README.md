@@ -8,7 +8,7 @@ The idea is to copy/paste from here and get your sample proyect up as quiclkly a
 
 e.g:
  - Testing some specific styling on an item control, item template.
- - Changing the control template of a items control, tree view etc
+ - Changing the control template of an items control, tree view etc
  - Syling the item container
  - Trying out a custom ItemTemplateSelector
  - Need to test hierarchical tempaltes in a tree 
