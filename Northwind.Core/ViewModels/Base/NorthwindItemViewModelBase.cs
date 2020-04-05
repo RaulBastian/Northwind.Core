@@ -4,6 +4,7 @@ using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace Northwind.Core.ViewModels {
     public class NorthwindItemViewModelBase<T> : BindableBase, INorthwindItemViewModel<T> where T : class {
         private bool isNew = false;
         private T item = null;
+        private ObservableCollection<NorthwindItemViewModelBase<T>> children = null;
         private INorthwindServiceBase<T> service;
 
         private DelegateCommand deleteCommand;
@@ -26,6 +28,12 @@ namespace Northwind.Core.ViewModels {
         public T DataObject {
             get {
                 return item;
+            }
+        }
+
+        public ObservableCollection<NorthwindItemViewModelBase<T>> Children {
+            get {
+                return children ?? (children = new ObservableCollection<NorthwindItemViewModelBase<T>>());
             }
         }
 

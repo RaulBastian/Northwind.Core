@@ -3,19 +3,16 @@ using Prism.Ioc;
 using Northwind.Forms.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Prism.Unity;
-using Northwind.Core.ViewModels;
 using Northwind.Core.Abstractions;
 using Northwind.Core.Http;
 using Northwind.Forms.ViewModels;
 using Northwind.Core.ViewModels.Customers;
 using Northwind.Core.ViewModels.Products;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
+using Prism.Unity;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace Northwind.Forms {
+namespace Northwind.Forms
+{
     public partial class App : PrismApplication
     {
         /* 
@@ -29,11 +26,6 @@ namespace Northwind.Forms {
 
 
         private void Configure() {
-            // Initialize Live Reload.
-#if DEBUG
-            LiveReload.Init();
-#endif
-
         }
 
         protected override void OnStart() {
@@ -47,6 +39,7 @@ namespace Northwind.Forms {
             await NavigationService.NavigateAsync("Index/Navigation/Customers");
         }
 
+
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NorthwindMasterDetail, NorthwindMasterDetailViewModel>("Index");
@@ -55,8 +48,8 @@ namespace Northwind.Forms {
             containerRegistry.RegisterInstance<ICustomersService>(new HttpCustomersService());
             containerRegistry.RegisterInstance<IProductsService>(new HttpProductsService());
 
-            containerRegistry.RegisterForNavigation<Customers, CustomersViewModel>("Customers");
-            containerRegistry.RegisterForNavigation<Products,ProductsViewModel>("Products");
+            containerRegistry.RegisterForNavigation<Customers, CustomerCollectionViewModel>("Customers");
+            containerRegistry.RegisterForNavigation<Products, ProductCollectionViewModel>("Products");
         }
     }
 }

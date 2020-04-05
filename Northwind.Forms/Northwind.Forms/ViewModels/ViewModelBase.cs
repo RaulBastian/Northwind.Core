@@ -1,9 +1,5 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Northwind.Forms.ViewModels
 {
@@ -23,17 +19,17 @@ namespace Northwind.Forms.ViewModels
             NavigationService = navigationService;
         }
 
-        public virtual void OnNavigatedFrom(NavigationParameters parameters)
+        public virtual void OnNavigatedFrom(INavigationParameters parameters)
         {
             
         }
 
-        public virtual void OnNavigatedTo(NavigationParameters parameters)
+        public virtual void OnNavigatedTo(INavigationParameters parameters)
         {
             
         }
 
-        public virtual void OnNavigatingTo(NavigationParameters parameters)
+        public virtual void OnNavigatingTo(INavigationParameters parameters)
         {
             
         }

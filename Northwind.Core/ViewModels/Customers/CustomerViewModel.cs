@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Northwind.Core.ViewModels.Customers {
     public class CustomerViewModel : NorthwindItemViewModelBase<Customer> {
 
-        private OrdersViewModel orders = null;
+        private OrderCollectionViewModel orders = null;
 
         private ICustomersService customerService;
         private IOrdersService ordersService;
@@ -26,10 +26,10 @@ namespace Northwind.Core.ViewModels.Customers {
         }
 
 
-        public OrdersViewModel Orders {
+        public OrderCollectionViewModel Orders {
             get {
                 if (orders == null) {
-                    orders = new OrdersViewModel(this.DataObject);
+                    orders = new OrderCollectionViewModel(this.DataObject);
                 }
                 return orders;
             }

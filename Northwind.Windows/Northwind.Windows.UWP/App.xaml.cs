@@ -48,8 +48,8 @@ namespace Northwind.Windows.UWP {
             Container.RegisterInstance<ICustomersService>(new HttpCustomersService());
             Container.RegisterInstance<IProductsService>(new HttpProductsService());
 
-            ViewModelLocationProvider.Register<CustomersPage, CustomersViewModel>();
-            ViewModelLocationProvider.Register<ProductsPage, ProductsViewModel>();
+            ViewModelLocationProvider.Register<CustomersPage, CustomerCollectionViewModel>();
+            ViewModelLocationProvider.Register<ProductsPage, ProductCollectionViewModel>();
 
             return base.OnInitializeAsync(args);
         }

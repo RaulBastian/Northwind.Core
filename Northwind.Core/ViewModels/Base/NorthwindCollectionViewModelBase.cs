@@ -98,6 +98,13 @@ namespace Northwind.Core.ViewModels {
                 INorthwindItemViewModel<T> vm = GetNorthwindItemViewModel(item, this.service);
                 items.Add(vm);
             }
+
+            OnAfterRefresh(items);
+        }
+
+        protected virtual void OnAfterRefresh(IEnumerable<INorthwindItemViewModel<T>> items)
+        {
+
         }
 
         /// <summary>

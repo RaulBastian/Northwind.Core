@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace Northwind.Core.ViewModels.Orders
 {
-    public class OrdersViewModel: NorthwindCollectionViewModelBase<Order> {
+    public class OrderCollectionViewModel: NorthwindCollectionViewModelBase<Order> {
 
         private IOrdersService ordersService;
         private Customer customer;
 
 
-        public OrdersViewModel() : this(new HttpOrdersService()) {
+        public OrderCollectionViewModel() : this(new HttpOrdersService()) {
 
         }
 
-        public OrdersViewModel(Customer customer) : this(new HttpOrdersService()) {
+        public OrderCollectionViewModel(Customer customer) : this(new HttpOrdersService()) {
             this.customer = customer;
         }
 
-        public OrdersViewModel(IOrdersService service) : base(service) {
+        public OrderCollectionViewModel(IOrdersService service) : base(service) {
             this.ordersService = service;
         }
 

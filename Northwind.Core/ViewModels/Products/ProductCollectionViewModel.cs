@@ -11,16 +11,16 @@ namespace Northwind.Core.ViewModels.Products
     /// <summary>
     /// Represents the products view model
     /// </summary>
-    public class ProductsViewModel : NorthwindCollectionViewModelBase<Product>
+    public class ProductCollectionViewModel : NorthwindCollectionViewModelBase<Product>
     {
         private IProductsService service;
 
-        public ProductsViewModel() : this(new HttpProductsService())
+        public ProductCollectionViewModel() : this(new HttpProductsService())
         {
 
         }
 
-        public ProductsViewModel(IProductsService service) : base(service)
+        public ProductCollectionViewModel(IProductsService service) : base(service)
         {
             this.service = service;
         }
