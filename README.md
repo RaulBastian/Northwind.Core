@@ -1,12 +1,33 @@
- Each Northwind entity has a collection view model.
- *So far: CustomersCollectionViewModel, OrdersViewModel , ProductsViewModel
+ ## Purpose
+ 
+ Its purpose is mostly for creating quick sample tests for prototyping and testing WPF, Xamarin and UWP funtionality.
+
+You may be working on a big proyect and something isn't working as expected, you'd rather spin up a new proyect to test seperately but don't want to go over the process of creating view model collections, bindable bases etc.
+
+The idea is to copy/paste from here and get your sample proyect up as quiclkly as possible.
+
+e.g:
+ - Testing some specific styling on an item control, item template.
+ - Changing the control template of a items control, tree view etc
+ - Syling the item container
+ - Trying out a custom ItemTemplateSelector
+ - Need to test hierarchical tempaltes in a tree 
+ 
+ In all these cases you can add the referenc and copy and past from here etc
+ 
+ ## Description
+ 
+ Each Northwind entity has a collection view model.  
+ 
+ *So far: CustomersCollectionViewModel, OrdersCollectionViewModel , ProductsCollectionViewModel, EmployeesCollectionViewModel
 
 Collection view models have two properties:
 - RefreshCommand (Refreshes the collection)
-- Items (Elements of the collection)
+- Items (Elements of the collection as an Observablecollection)
 
 Items are view models which expose the following properties:
 - DataObject (The Northwind entity: Customer, Product, Order)
+- Children (A child collection of view models, used so far with the EmployeeViewModel, to be used with hierarchical templates)
 - DeleteCommand
 - RefreshCommand
 - SaveCommand
@@ -64,6 +85,26 @@ this.DataContext = new CustomersCollectionViewModel();
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+ ```
+ 
+  #### Or in a TreeView: (With EmployeesCollectionViewModel)
+ 
+ ```
+<TreeView Grid.Row="1" ItemsSource="{Binding Items, Mode=OneWay}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Content="{Binding DataObject.EmployeeID}"></Label>
+                        <Label Grid.Row="1" Content="{Binding DataObject.LastName}"></Label>
+                    </Grid>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
  ```
  
  ## For Xamarin.Forms with PRISM
